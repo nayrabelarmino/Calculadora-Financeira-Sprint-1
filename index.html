@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora financeira - VacSense</title>
+</head>
+<body class="body">
+    <div class="fundo">
+        <div class="header">
+            <div class="container">
+                <img src="logo_vacsense SEM FUNDO.png" width="17%" height="17%" class="logo">
+                <ul class="navbar">
+                    <li>Home</li>
+                    <li>Quem Somos</li>
+                    <li>VacSense</li>
+                    <li class="agora"">Simulador</li>
+                    <li>Cadastro</li>
+                    <li>Contato </li>
+                    <div class="botao_cliente">
+                        <li>Área do Cliente </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div><br><br>
+    <div class="linha"></div>
+    <div class="divcaixas">
+    <div class="caixa"><br>
+        <h3>Calcule sua economia aqui! 💰</h3>
+        <h4>Insira a vacina para calcular o orçamento:</h4>
+        <select class="inputs" name="Nome da Vacina" id="nomeVac">
+            <option value="Gripe">Gripe</option>
+            <option value="BCG">BCG</option>
+            <option value="Febre Amarela">Febre Amarela</option>
+            <option value="HPV">HPV</option>
+        </select>
+        <h4>Total de vacinas armazenadas:</h4>
+        <input class="inputs" id="ipt_total_vac" type="number" placeholder="Ex: 999"><br>
+        <h4>Valor da unidade da vacina:</h4>
+        <input class="inputs" id="ipt_valor_vac" type="number" placeholder="R$"><br><br>
+        <button class="botao_cliente" onclick="calcularOrcamento()"><b>Calcular orçamento</b></button><br><br>
+    </div>
+    <div class="caixa2" id="res"></div><br><br>
+    </div>
+</body>
+</html>
+<script>
+    function calcularOrcamento(){
+        var nome = nomeVac.value;
+        var totalVac = Number(ipt_total_vac.value);
+        var valorVac = Number(ipt_valor_vac.value);
+
+        // Sem a VacSense
+        var perdasVacina = totalVac * 0.45;
+        var prejuizoMes = perdasVacina * valorVac;
+        var prejuizoAno = perdasVacina * 12; 
+
+        // Com a VacSense
+        var vacinasPoupadas = perdasVacina * 0.70 // vacinas perdidas * 70% (porcentagem provisoria)
+        var economiaMes = valorVac * vacinasPoupadas; 
+        var economiaAno = economiaMes * 12;
+
+        if (nome == '' || totalVac == '' || valorVac == ''){
+            alert('Preencha os campos antes de fazer seu calculo')}
+
+        res.innerHTML = `<br>Tipo de vacina: <b>${nome}</b><br>
+        Total de vacinas armazenadas: <b>${totalVac}</b><br>
+        Valor da unidade da vacina: <b>R$${valorVac.toFixed(2)}</b><br>
+        <br><br>
+        <b>Sem VacSense</b> ❌💉<br>
+        Vacinas perdidas: <b>${perdasVacina.toFixed(0)}</b><br>
+        Prejuízo p/mês: <b>R$${prejuizoMes.toFixed(2)}</b><br>
+        Prejuízo p/ano: <b>R$${prejuizoAno.toFixed(2)}</b><br>
+        <br><br>
+        <b>Com VacSense</b> ✅💉<br>
+        Vacinas poupadas: <b>${vacinasPoupadas.toFixed(0)}</b><br>
+        <br><br>
+        Economia por mês: <b>R$${economiaMes.toFixed(2)}</b><br>
+        Economia por ano: <b>R$${economiaAno.toFixed(2)}</b><br>
+        <br><br>
+        <b><i>REDUÇÃO DE 70%<br>
+        PAGANDO APENAS R$60,00 POR MÊS</i></b>`
+
+    }
+</script>
+
+
+

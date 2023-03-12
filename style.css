@@ -1,0 +1,100 @@
+.body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    background-color: #BDCEDB;
+}
+
+.fundo {
+    background-color: #BDCEDB;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.header a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.agora {
+    font-weight: 900;
+    color: #1d3d50;
+}
+
+.logo {
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px
+}
+
+.navbar {
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #ffffff;
+}
+
+
+.botao_cliente {
+    background-color: #1e3a4e;
+    border-radius: 33px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 15px 25px;
+    text-decoration: none;
+}
+
+.divcaixas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.caixa {
+
+    width: 450px;
+    height: 470px;
+    text-align: center;
+    justify-content: center;
+    background-color: #d6d6d6;
+    border-radius: 10px;
+    border: 2px solid #8d8a8a;
+    color: #1d3d50;
+    margin-left: 9%;
+}
+
+.caixa2 {
+    width: 450px;
+    height: 470px;
+    text-align: center;
+    justify-content: center;
+    background-color: #d6d6d6;
+    border-radius: 10px;
+    border: 2px solid #8d8a8a;
+    margin-left: 5%
+}
+
+.inputs{
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+	border: none;
+	margin-bottom: 10px;
+	border-radius: 50px;
+}
+
