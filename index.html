@@ -54,35 +54,32 @@
         var valorVac = Number(ipt_valor_vac.value);
 
         // Sem a VacSense
-        var perdasVacina = totalVac * 0.45;
-        var prejuizoMes = perdasVacina * valorVac;
-        var prejuizoAno = perdasVacina * 12; 
+        var perdasVacina = totalVac * 0.45; // Vacinas perdidas por ano pela temperatura - porcentagem
+        var prejuizoTotal = perdasVacina * valorVac; //em reais
 
         // Com a VacSense
-        var vacinasPoupadas = perdasVacina * 0.75
-        var economiaMes = valorVac * vacinasPoupadas; 
-        var economiaAno = economiaMes * 12;
+        var vacinasPoupadas = perdasVacina * 0.75;
+        var economiaTotal = prejuizoTotal * 0.75;
 
         if (nome == '' || totalVac == '' || valorVac == ''){
             alert('Preencha os campos antes de fazer seu calculo')}
 
         res.innerHTML = `<br>Tipo de vacina: <b>${nome}</b><br>
         Total de vacinas armazenadas: <b>${totalVac}</b><br>
-        Valor da unidade da vacina: <b>R$${valorVac.toFixed(2)}</b><br>
+        Valor da unidade da vacina: <b>R$${valorVac.toFixed(0)}</b><br>
         <br><br>
         <b>Sem VacSense</b> ❌💉<br>
         Vacinas perdidas: <b>${perdasVacina.toFixed(0)}</b><br>
-        Prejuízo p/mês: <b>R$${prejuizoMes.toFixed(2)}</b><br>
-        Prejuízo p/ano: <b>R$${prejuizoAno.toFixed(2)}</b><br>
+        Prejuízo p/mês: <b>R$${prejuizoTotal.toFixed(0)}</b><br>
+        Prejuízo p/ano: <b>R$${prejuizoTotal.toFixed(0) * 12}</b><br>
         <br><br>
         <b>Com VacSense</b> ✅💉<br>
         Vacinas poupadas: <b>${vacinasPoupadas.toFixed(0)}</b><br>
         <br><br>
-        Economia por mês: <b>R$${economiaMes.toFixed(2)}</b><br>
-        Economia por ano: <b>R$${economiaAno.toFixed(2)}</b><br>
+        Economia por mês: <b>R$${economiaTotal.toFixed(0)}</b><br>
+        Economia por ano: <b>R$${economiaTotal.toFixed(0) * 12}</b><br>
         <br><br>
-        <b><i>REDUÇÃO DE 70%<br>
-        PAGANDO APENAS R$60,00 POR MÊS</i></b>`
+        <b><i>REDUÇÃO DE 75%</i></b>`
 
     }
 </script>
